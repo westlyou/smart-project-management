@@ -923,12 +923,6 @@
             </search>
         </field>
     </record>
-    <record id="action_marks_report_view" model="ir.actions.act_window.view">
-        <field name="sequence" eval="1"/>
-        <field name="view_mode">tree</field>
-        <field name="view_id" ref="marks_report_tree"/>
-        <field name="act_window_id" ref="action_marks_report"/>
-    </record>
     <record id="action_marks_report" model="ir.actions.act_window">
         <field name="name">Задания</field>
         <field name="res_model">project.task</field>
@@ -937,6 +931,13 @@
         <field name="search_view_id" ref="marks_report_search"/>
         <field name="context">{'search_default_user': 1}</field>
     </record>
+    <record id="action_marks_report_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="marks_report_tree"/>
+        <field name="act_window_id" ref="action_marks_report"/>
+    </record>
+
     <!--МЕНЮ-->
     <menuitem id="project.menu_project_config" name="Configuration" parent="base.menu_main_pm" sequence="100" groups="project.group_project_manager,group_adm_bp,group_project_aim,group_project_obs,group_project_obs_max"/>
     <menuitem id="base.menu_project_general_settings" name="Settings" parent="project.menu_project_config" sequence="0" action="project.action_config_settings" groups="base.group_configuration"/>
@@ -948,7 +949,7 @@
     <menuitem id='menu_kro_jobs' action="action_job" name="Задачи" parent="kro_proj_menu" sequence="4" groups="project.group_project_manager,group_adm_bp,group_project_aim,group_project_obs,group_project_obs_max"/>
     <menuitem id='menu_kro_tasks' action="kro_actions_view_taskss" string="Задания" name="Задания" parent="kro_proj_menu" sequence="5"/>
     <menuitem id='menu_kro_tasks_tree' action="kro_actions_view_taskss_tree" string="Задания-список" name="Задания-список" parent="kro_proj_menu" sequence="6"/>
-    <menuitem id='menu_kro_tasks_report_est' action="action_marks_report" string="Оценка заданий" name="Оценка заданий" parent="project.menu_project_config" sequence="1"/>
+    <menuitem id='menu_kro_tasks_report_est' action="action_marks_report" string="Оценка заданий" name="Оценка заданий" parent="base.menu_project_report" sequence="1"/>
     <menuitem id="base.menu_main_pm" groups="project.group_project_manager,project.group_project_user,group_adm_bp,group_project_aim,group_project_obs,group_project_obs_max"/>
 </data>
 </openerp>
